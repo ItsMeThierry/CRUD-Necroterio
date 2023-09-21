@@ -38,7 +38,8 @@ void Morto::lerAtributos() { // Lê os atributos da classe morto
 
 void Morto::exibirAtributos() { // Exibe os atributos da classe morto
   cout << "=================================================\n\n"
-       << "Estado: MORTO\n" << endl;
+       << "Estado: MORTO\n"
+       << endl;
   Pessoa::exibirAtributos();
   cout << "\nData da morte: " << dataDaMorte.getData() << endl
        << "Causa da morte: " << causaDaMorte << endl
