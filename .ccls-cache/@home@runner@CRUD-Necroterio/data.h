@@ -3,11 +3,12 @@
 
 class Data {
 private:
-  int dia;
-  int mes;
-  int ano;
+  std::string dia;
+  std::string mes;
+  std::string ano;
 
 public:
   std::string getData();
-  void lerData();
+  void setData(std::string data);
+  int lerData();
 };

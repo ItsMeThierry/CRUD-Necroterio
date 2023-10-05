@@ -15,3 +15,25 @@ void Tela::limparTela() {
   system("clear");
 #endif
 }
+
+string Tela::acrescentarZero(string num) {
+  if (num.size() == 1) {
+    return "0" + num;
+  }
+
+  return num;
+}
+
+string Tela::espacamento(int quantidade) {
+  string espaco;
+
+  while (quantidade--) {
+    espaco.append(" ");
+  }
+
+  return espaco;
+}
+
+int Tela::calcularEspacamento(int fixo, int variavel) {
+  return abs(fixo - variavel) / 2;
+}

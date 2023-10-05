@@ -1,0 +1,76 @@
+Necrotério: CENTRO DE INFORMÁTICA;
+
+Tipo: 1;
+Nome: Thierry Araújo;
+CPF: 123.456.789-10;
+Naturalidade: João Pessoa - PB;
+Tipo Sanguineo: A+;
+Sexo: Masculino;
+Data de Nascimento: 20/01/2004;
+Data da Morte: 25/09/2023;
+Causa da Morte: Enforcamento;
+É doador: 0;
+-
+Tipo: 1;
+Nome: Aline Freitas;
+CPF: 536.436.953-25;
+Naturalidade: João Pessoa - PB;
+Tipo Sanguineo: O+;
+Sexo: Feminino;
+Data de Nascimento: 08/01/2000;
+Data da Morte: 26/09/2023;
+Causa da Morte: Suícidio;
+É doador: 0;
+-
+Tipo: 2;
+Nome: Eduardo Barbosa;
+CPF: 777.666.420-69;
+Naturalidade: São Paulo - SP;
+Tipo Sanguineo: A-;
+Sexo: Masculino;
+Data de Nascimento: 22/10/2003;
+Cargo: Coveiro;
+Salario Mensal: 1000;
+-
+Tipo: 1;
+Nome: Indro;
+CPF: 123.420.777-69;
+Naturalidade: São Vicente Férrer - PE;
+Tipo Sanguineo: A+;
+Sexo: Masculino;
+Data de Nascimento: 11/09/2001;
+Data da Morte: 25/09/2023;
+Causa da Morte: Monster;
+É doador: 0;
+-
+Tipo: 2;
+Nome: Caveirão;
+CPF: 777.666.420-69;
+Naturalidade: Submundo - PB;
+Tipo Sanguineo: O-;
+Sexo: Feminino;
+Data de Nascimento: 06/06/1963;
+Cargo: Dono;
+Salario Mensal: 5000;
+-
+Tipo: 2;
+Nome: Derzu Omaia;
+CPF: 856.346.654-24;
+Naturalidade: João Pessoa - PB;
+Tipo Sanguineo: A-;
+Sexo: Masculino;
+Data de Nascimento: 01/01/1990;
+Cargo: Admnistrador;
+Salario Mensal: 2500;
+-
+Tipo: 1;
+Nome: Dudu;
+CPF: 123.456.789-10;
+Naturalidade: João Pessoa - PB;
+Tipo Sanguineo: A+;
+Sexo: Masculino;
+Data de Nascimento: 22/10/2003;
+Data da Morte: 26/09/2023;
+Causa da Morte: Caganeira;
+É doador: 1;
+-

@@ -1,4 +1,5 @@
 #pragma once
+#include "operadorDeArquivo.h"
 #include "pessoa.h"
 #include <iostream>
 #include <vector>
@@ -7,7 +8,6 @@ class Necroterio {
 private:
   std::vector<Pessoa *> pessoas;
   std::string nome;
-  int capacidadeMax;
   int quantidadeDeFuncionarios;
   int quantidadeDeMortos;
 
@@ -15,12 +15,16 @@ private:
   Pessoa *pesquisar(std::string nome);
 
 public:
-  Necroterio();
+  Necroterio(OperadorDeArquivo *op);
+
   void lerPessoa();
+  void listarTodos();
   void exibirPessoa();
   void alterarPessoa();
   void removerPessoa();
+  void exibirRelatorio();
   void lerAtributos();
 
   std::string getNome();
+  std::vector<Pessoa *> getPessoas();
 };

@@ -8,9 +8,20 @@ private:
   Data dataDaMorte;
   std::string causaDaMorte;
   bool ehDoador;
-  int id;
 
 public:
-  void lerAtributos();
+  int lerAtributos();
   void exibirAtributos();
+
+  int lerDataDaMorte();
+  int lerCausaDaMorte();
+  int lerEhDoador();
+
+  Data getDataDaMorte();
+  std::string getCausaDaMorte();
+  bool getEhDoador();
+
+  void setDataDaMorte(std::string data);
+  void setCausaDaMorte(std::string causaDaMorte);
+  void setEhDoador(bool ehDoador);
 };

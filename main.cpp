@@ -1,103 +1,88 @@
+
 #include "necroterio.h"
-#include "pessoa.h"
+#include "operadorDeArquivo.h"
+#include "teclado.h"
 #include "tela.h"
 #include <iostream>
-#include <math.h>
+#include <string>
 
 using namespace std;
 
-/*
-    A função espaçamento é um loop que adiciona espaços brancos em um texto e o
-   retorna em string
-*/
-
-string espacamento(int quantidade) {
-  string espaco;
-
-  while (quantidade--) {
-    espaco.append(" ");
-  }
-
-  return espaco;
-}
-
-/*
-    A função calcularEspaçamento retorna um numero inteiro de espaços
-   necessários para centralizar um texto variavel em relação a um fixo
-*/
-
-int calcularEspacamento(int fixo, int variavel) {
-  return abs(fixo - variavel) / 2;
-}
-
 int main() {
-  /*
-      Template do Menu:
-
-      =================================================
-              +NECROTÉRIO {nome do necrotério}+
-      =================================================
-      1. Inserir
-      2. Listar todos
-      3. Exibir
-      4. Alterar
-      5. Remover
-      6. Exibir Relatório
-      7. Sair
-      =================================================
-
-      ATENÇÃO: os itens 1,3,4 e 5 devem, antes, perguntar se é um funcionário ou
-     morto.
-  */
-
-  Necroterio necroterio = Necroterio();
 
   string teclado;
+
+  OperadorDeArquivo op = OperadorDeArquivo();
+
+  cout << "==================================================\n1. "
+       << ((op.temArquivo(1)) ? "arquivo_01.txt" : " ") << "\n2. "
+       << ((op.temArquivo(2)) ? "arquivo_02.txt" : " ") << "\n3. "
+       << ((op.temArquivo(3)) ? "arquivo_03.txt" : " ")
+       << "\n==================================================\n";
+  cout << "Escolha um slot para o arquivo: ";
+
+  do {
+    getline(cin, teclado);
+
+    if (teclado.size() == 1 && Teclado::ehNumeroInt(teclado) &&
+        stoi(teclado) > 0 && stoi(teclado) <= 3) {
+      op.setArquivoID(stoi(teclado));
+      break;
+    }
+
+    cout << "Opção inválida!: ";
+  } while (1);
+
+  Tela::limparTela();
+
+  Necroterio necroterio = Necroterio(&op);
+
+  string display = "+ NECROTÉRIO " + necroterio.getNome() + " +";
   bool running = true;
 
   do {
-    cout << "=================================================\n\n"
-         << espacamento(calcularEspacamento(
-                50, ("+ NECROTÉRIO  +" + necroterio.getNome()).size()))
-         << "+ NECROTÉRIO " << necroterio.getNome()
-         << " +\n\n=================================================";
-    cout << "\n1. Inserir\n2. Listar todos\n3. Exibir\n4. Alterar\n5. "
+    cout << "==================================================\n\n"
+         << Tela::espacamento(Tela::calcularEspacamento(50, display.size()))
+         << display
+         << "\n\n==================================================\n";
+    cout << "1. Inserir\n2. Listar todos\n3. Exibir\n4. Alterar\n5. "
             "Remover\n6. Exibir Relatório\n7. "
-            "Sair\n=================================================\n";
+            "Sair\n==================================================\n";
 
+    cout << "Escolha uma opção: ";
     do {
-      cout << "Escolha uma opção: ";
-      cin >> teclado;
-      cin.ignore();
+      getline(cin, teclado);
 
-      if (teclado.size() == 1 && stoi(teclado) >= 1 && stoi(teclado) <= 7) {
+      if (teclado.size() == 1 && Teclado::ehNumeroInt(teclado) &&
+          stoi(teclado) > 0 && stoi(teclado) <= 7) {
         break;
-      } else {
-        cout << "Opção inválida!\n";
       }
+
+      cout << "Opção inválida!: ";
     } while (1);
 
-    switch (stoi(teclado)) {
-    case 1:
+    switch (teclado[0]) {
+    case '1':
       necroterio.lerPessoa();
       break;
-    case 2:
-      // Listar todos mortos ou funcionarios
+    case '2':
+      necroterio.listarTodos();
       break;
-    case 3:
+    case '3':
       necroterio.exibirPessoa();
       break;
-    case 4:
+    case '4':
       necroterio.alterarPessoa();
       break;
-    case 5:
+    case '5':
       necroterio.removerPessoa();
       break;
-    case 6:
-      // Exibe relatório
+    case '6':
+      necroterio.exibirRelatorio();
       break;
-    case 7:
+    case '7':
       running = false;
+      op.salvaDados(necroterio.getPessoas(), necroterio.getNome());
     }
 
   } while (running);

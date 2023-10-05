@@ -7,9 +7,17 @@ class Funcionario : public Pessoa {
 private:
   std::string cargo;
   float salarioMensal;
-  int id;
 
 public:
-  void lerAtributos();
+  int lerAtributos();
   void exibirAtributos();
+
+  int lerCargo();
+  int lerSalarioMensal();
+
+  std::string getCargo();
+  float getSalarioMensal();
+
+  void setCargo(std::string cargo);
+  void setSalarioMensal(float salarioMensal);
 };
